@@ -1,0 +1,39 @@
+.app-ace-editor {
+    border: 2px solid #fbf6fb;
+    
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+}
+.ioarea {
+    margin-top: 7.5em;
+    display: grid;
+    width: 100%;
+    height: 100%;
+}
+.cmd-input {
+    width: 100%;
+    height: 50%;
+    
+}
+.server-output {
+    width: 100%;
+    height: 50%;
+}
+    
+.output-area {
+    border: 2px solid #fbf6fb;
+   
+    border-radius: 6px;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+
+}
+
+.io-label{
+    color: #fbf6fb;
+    padding: 5px 10px 5px 5px;
+    font-weight: 700;
+    font-size: 20px;
+}

@@ -1,0 +1,25 @@
+.app-area{
+    margin: 0;
+}
+title-bar {
+    width: 100%;
+    height: 5em;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+}
+code-editor {
+    float: left;
+    width: 70%;
+    height: 30em;
+}
+
+
+io-area {
+    float: right;
+    width: 28%;
+    margin: 2px;
+    height: 30em;
+    margin-right: 1em;
+ 
+}
