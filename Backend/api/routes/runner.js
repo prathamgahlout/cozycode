@@ -2,7 +2,7 @@ import express from 'express';
 import fs from 'fs';
 import util from 'util';
 import child_process, { execSync } from 'child_process';
-import { UV_FS_O_FILEMAP } from 'constants';
+
 
 const router = express.Router();
 const exec = util.promisify(child_process.exec);
@@ -38,25 +38,40 @@ router.post('/submit',(req,res)=>{
         extension='.rb';
     //Write Job
     if(cmd_input!='undefined'){
-        fs.writeFileSync('/home/ubuntu/cozycode/Backend/api/sessions/'+sessionID+'/input.txt',cmd_input,{flag : 'w'});
+        try{
+            fs.writeFileSync('/home/ubuntu/cozycode/Backend/api/sessions/'+sessionID+'/input.txt',cmd_input,{flag : 'w'});
+        }catch(err){
+            console.log(err);
+        }
     }
-    fs.writeFileSync('/home/ubuntu/cozycode/Backend/api/sessions/'+sessionID+'/src'+extension,src,{flag  : 'w'});
+    try{
+        fs.writeFileSync('/home/ubuntu/cozycode/Backend/api/sessions/'+sessionID+'/src'+extension,src,{flag  : 'w'});
+    }catch(err){
+        console.log(err);
+        return;
+    }
+    
     var containerid = runImage(sessionID);
     setTimeout(function(){killContainer(containerid);},10000);
     //console.log(containerid);
     var output;
     var error=" ";
     setTimeout(function(){
-        output = fs.readFileSync('./sessions/'+sessionID+'/output.txt','utf-8',(err,data)=>{
-            if(err){
-                console.log(err);
-            }
-        });
-        error=fs.readFileSync('./sessions/'+sessionID+'/error.txt','utf-8',(err,data)=>{
-            if(err){
-                console.log(err);
-            }
-        });
+        try{
+            output = fs.readFileSync('./sessions/'+sessionID+'/output.txt','utf-8',(err,data)=>{
+                if(err){
+                    console.log(err);
+                }
+            });
+            error=fs.readFileSync('./sessions/'+sessionID+'/error.txt','utf-8',(err,data)=>{
+                if(err){
+                    console.log(err);
+                }
+            });
+        }catch(err){
+            console.log("Error in reading output files!\n"+err);
+            return;
+        }
         var data = {
             output: output,
             error:error
@@ -71,7 +86,7 @@ function createTempDir(sessionID){
     if(!exists){
         fs.mkdirSync('./sessions/'+sessionID);
     }
-    
+    //Else continue
 }
  function cleanup(sessionID){
      //Windows implementation

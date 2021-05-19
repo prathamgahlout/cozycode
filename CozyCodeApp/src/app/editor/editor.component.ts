@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import * as ace from "ace-builds";
 
-const SESSION_URL = 'http://192.168.1.22:80/getsession';
+const SESSION_URL = 'http://52.15.105.108:80/getsession';
 
 @Component({
   selector: 'code-editor',
@@ -12,7 +12,7 @@ const SESSION_URL = 'http://192.168.1.22:80/getsession';
 })
 export class EditorComponent implements AfterViewInit {
 
-   POST_URL = "http://192.168.1.22:80/runner/submit";
+   POST_URL = "http://52.15.105.108:80/runner/submit";
   sessionID:string;
   aceEditor;
   language:string;
