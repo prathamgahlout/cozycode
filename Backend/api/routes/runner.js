@@ -2,6 +2,7 @@ import express from 'express';
 import fs from 'fs';
 import util from 'util';
 import child_process, { execSync } from 'child_process';
+import { UV_FS_O_FILEMAP } from 'constants';
 
 const router = express.Router();
 const exec = util.promisify(child_process.exec);
@@ -66,13 +67,10 @@ router.post('/submit',(req,res)=>{
     
 });
 function createTempDir(sessionID){
-    fs.access("./sessions/"+sessionID,function(error){
-        if(error){
-            fs.mkdirSync('./sessions/'+sessionID);
-        }else{
-           //Directory exists already, just continue
-        }
-    })
+    var exists = fs.existsSync("/home/ubuntu/cozycode/Backend/api/sessions/"+sessionID);
+    if(!exists){
+        fs.mkdirSync('./sessions/'+sessionID);
+    }
     
 }
  function cleanup(sessionID){
