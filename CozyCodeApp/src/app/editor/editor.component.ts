@@ -27,12 +27,19 @@ export class EditorComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     ace.config.set("fontSize", "16px");
 
-    ace.config.set('basePath', 'https://unpkg.com/ace-builds@1.4.12/src-noconflict/');
+    ace.config.set('basePath', 'https://unpkg.com/ace-builds@1.4.12/src-noconflict');
+    ace.require("ace/ext/language_tools");
+    
 
     this.aceEditor = ace.edit(this.editor.nativeElement);
     this.aceEditor.session.setValue("//Your code goes here...");
     this.aceEditor.setShowPrintMargin(false);
-    this.aceEditor.setTheme('ace/theme/twilight');
+    this.aceEditor.setTheme('ace/theme/dracula');
+    this.aceEditor.setOptions({
+      enableBasicAutocompletion: true,
+      enableSnippets: true,
+      enableLiveAutocompletion: false
+    });
     this.getSessionID();
   }
   getSessionID(){
@@ -55,6 +62,11 @@ export class EditorComponent implements AfterViewInit {
       $event='csharp';
     s = 'ace/mode/'+$event;
     this.aceEditor.session.setMode(s);
+    this.aceEditor.setOptions({
+      enableBasicAutocompletion: true,
+      enableSnippets: true,
+      enableLiveAutocompletion: true
+    });
   }
 
   clearEditor($event){

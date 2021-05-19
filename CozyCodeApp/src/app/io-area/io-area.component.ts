@@ -23,11 +23,11 @@ export class IoAreaComponent implements AfterViewInit {
 
     this.inputAceEditor = ace.edit(this.editor.nativeElement);
     this.inputAceEditor.setShowPrintMargin(false);
-    this.inputAceEditor.setTheme('ace/theme/twilight');
+    this.inputAceEditor.setTheme('ace/theme/dracula');
 
     this.outputAceEditor = ace.edit(this.editor2.nativeElement);
     this.outputAceEditor.setShowPrintMargin(false);
-    this.outputAceEditor.setTheme('ace/theme/twilight');
+    this.outputAceEditor.setTheme('ace/theme/dracula');
     this.outputAceEditor.setReadOnly(true);
   }
 
