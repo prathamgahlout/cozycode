@@ -11,6 +11,7 @@ import { TitleBarComponent } from './title-bar/title-bar.component';
 import { IoAreaComponent } from './io-area/io-area.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AboutComponent } from './about/about.component';
+import { Ace } from 'ace-builds';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,6 @@ import { AboutComponent } from './about/about.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    
     //RouterModule.forRoot([
       //{path: 'about',component:AboutComponent},
       //{path: '/',component:AppComponent}
