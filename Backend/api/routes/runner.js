@@ -79,7 +79,7 @@ function createTempDir(sessionID){
      //execSync('rmdir /s /q .\\sessions\\'+sessionID);
 
      //Linux implementation
-     execSync('rmdir -rf ./sessions/'+sessionID);
+     execSync('rm -rf ./sessions/'+sessionID);
 }
 
 function runImage(sessionID) {
