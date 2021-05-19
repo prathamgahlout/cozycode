@@ -89,13 +89,17 @@ function createTempDir(sessionID){
     
 }
  function cleanup(sessionID){
-     execSync('del /f /s /q .\\sessions\\'+sessionID+' 1>nul');
-     execSync('rmdir /s /q .\\sessions\\'+sessionID);
+     //Windows implementation
+     //execSync('del /f /s /q .\\sessions\\'+sessionID+' 1>nul');
+     //execSync('rmdir /s /q .\\sessions\\'+sessionID);
+
+     //Linux implementation
+     execSync('rmdir -rf ./sessions/'+sessionID);
 }
 
 function runImage(sessionID) {
     
-    const stdout=  execSync('docker run -d --mount src="/c/Users/pgahl/OneDrive/Desktop/CollegeProject/Web/CozyCode/Backend/api/sessions/'+sessionID+'",dst=/source,type=bind cimage' );
+    const stdout=  execSync('docker run -d --mount src="./sessions/'+sessionID+'",dst=/source,type=bind cimage' );
    
     return stdout;
 }
