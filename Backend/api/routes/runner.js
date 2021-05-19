@@ -37,45 +37,32 @@ router.post('/submit',(req,res)=>{
         extension='.rb';
     //Write Job
     if(cmd_input!='undefined'){
-        fs.writeFile('/home/ubuntu/cozycode/Backend/api/sessions/'+sessionID+'/input.txt',cmd_input,{recursive : true},err=>{
+        fs.writeFileSync('/home/ubuntu/cozycode/Backend/api/sessions/'+sessionID+'/input.txt',cmd_input,{flag : 'w'});
+    }
+    fs.writeFileSync('/home/ubuntu/cozycode/Backend/api/sessions/'+sessionID+'/src'+extension,src,{flag  : 'w'});
+    var containerid = runImage(sessionID);
+    setTimeout(function(){killContainer(containerid);},10000);
+    //console.log(containerid);
+    var output;
+    var error=" ";
+    setTimeout(function(){
+        output = fs.readFileSync('./sessions/'+sessionID+'/output.txt','utf-8',(err,data)=>{
             if(err){
                 console.log(err);
             }
-        })
-    }
-    fs.writeFile('/home/ubuntu/cozycode/Backend/api/sessions/'+sessionID+'/src'+extension,src,{recursive  : true},err=>{
-        if(err){
-            console.log(err);
-        }else{
-            var containerid = runImage(sessionID);
-            setTimeout(function(){killContainer(containerid);},10000);
-            //console.log(containerid);
-            var output;
-            var error=" ";
-            setTimeout(function(){
-                output = fs.readFileSync('./sessions/'+sessionID+'/output.txt','utf-8',(err,data)=>{
-                    if(err){
-                        console.log(err);
-                    }
-                });
-                error=fs.readFileSync('./sessions/'+sessionID+'/error.txt','utf-8',(err,data)=>{
-                    if(err){
-                        console.log(err);
-                    }
-                });
-                var data = {
-                    output: output,
-                    error:error
-                };
-                cleanup(sessionID);
-                res.send(data);
-            },2000);
-        
-            
-            //TODO:  RunImage is too slow. FInd a way to wait for its completion
-            
-        }
-    });
+        });
+        error=fs.readFileSync('./sessions/'+sessionID+'/error.txt','utf-8',(err,data)=>{
+            if(err){
+                console.log(err);
+            }
+        });
+        var data = {
+            output: output,
+            error:error
+        };
+        cleanup(sessionID);
+        res.send(data);
+    },2000);
     
 });
 function createTempDir(sessionID){
