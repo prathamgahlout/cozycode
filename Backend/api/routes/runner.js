@@ -48,6 +48,7 @@ router.post('/submit',(req,res)=>{
         fs.writeFileSync('/home/ubuntu/cozycode/Backend/api/sessions/'+sessionID+'/src'+extension,src,{flag  : 'w'});
     }catch(err){
         console.log(err);
+        cleanup(sessionID);
         return;
     }
     
@@ -70,6 +71,7 @@ router.post('/submit',(req,res)=>{
             });
         }catch(err){
             console.log("Error in reading output files!\n"+err);
+            cleanup(sessionID);
             return;
         }
         var data = {
