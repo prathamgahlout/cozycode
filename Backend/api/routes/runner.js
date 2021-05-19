@@ -37,13 +37,13 @@ router.post('/submit',(req,res)=>{
         extension='.rb';
     //Write Job
     if(cmd_input!='undefined'){
-        fs.writeFile('./sessions/'+sessionID+'/input.txt',cmd_input,{recursive : true},err=>{
+        fs.writeFile('/home/ubuntu/cozycode/Backend/api/sessions/'+sessionID+'/input.txt',cmd_input,{recursive : true},err=>{
             if(err){
                 console.log(err);
             }
         })
     }
-    fs.writeFile('./sessions/'+sessionID+'/src'+extension,src,{recursive  : true},err=>{
+    fs.writeFile('/home/ubuntu/cozycode/Backend/api/sessions/'+sessionID+'/src'+extension,src,{recursive  : true},err=>{
         if(err){
             console.log(err);
         }else{
