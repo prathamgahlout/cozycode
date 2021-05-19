@@ -80,7 +80,12 @@ export class EditorComponent implements AfterViewInit {
         observe: 'response' 
     };
      this.http.post(this.POST_URL,data,httpOptions).subscribe((res:any)=>{
+       if(res.body.status == "success")
         this.outputEvent.emit(res.body.output+res.body.error);
+        else if(res.body.status == "error"){
+          console.log("Failed to run code on server end!");
+          this.outputEvent.emit("Failed to run code on server end!");
+        }
         
      });
   

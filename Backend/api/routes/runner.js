@@ -49,7 +49,9 @@ router.post('/submit',(req,res)=>{
     }catch(err){
         console.log(err);
         cleanup(sessionID);
-        return;
+        res.send({
+            status :"error"
+        });
     }
     
     var containerid = runImage(sessionID);
@@ -72,11 +74,15 @@ router.post('/submit',(req,res)=>{
         }catch(err){
             console.log("Error in reading output files!\n"+err);
             cleanup(sessionID);
+            res.send({
+                status :"error"
+            });
             return;
         }
         var data = {
             output: output,
-            error:error
+            error:error,
+            status: "success"
         };
         cleanup(sessionID);
         res.send(data);
