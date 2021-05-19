@@ -7,7 +7,7 @@ import sessionRouter from './routes/session.js';
 
 const app = express();
 const PORT = 80;
-const HOST = '192.168.1.22';
+const HOST = '0.0.0.0';
 
 
 app.use(express.json());
