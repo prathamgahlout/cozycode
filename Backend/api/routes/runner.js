@@ -37,13 +37,13 @@ router.post('/submit',(req,res)=>{
         extension='.rb';
     //Write Job
     if(cmd_input!='undefined'){
-        fs.writeFile('./sessions/'+sessionID+'/input.txt',cmd_input,err=>{
+        fs.writeFile(__dirname+'/./sessions/'+sessionID+'/input.txt',cmd_input,err=>{
             if(err){
                 console.log(err);
             }
         })
     }
-    fs.writeFile('./sessions/'+sessionID+'/src'+extension,src,err=>{
+    fs.writeFile(__dirname+'/./sessions/'+sessionID+'/src'+extension,src,err=>{
         if(err){
             console.log(err);
         }else{
@@ -53,12 +53,12 @@ router.post('/submit',(req,res)=>{
             var output;
             var error=" ";
             setTimeout(function(){
-                output = fs.readFileSync('./sessions/'+sessionID+'/output.txt','utf-8',(err,data)=>{
+                output = fs.readFileSync(__dirname+'/./sessions/'+sessionID+'/output.txt','utf-8',(err,data)=>{
                     if(err){
                         console.log(err);
                     }
                 });
-                error=fs.readFileSync('./sessions/'+sessionID+'/error.txt','utf-8',(err,data)=>{
+                error=fs.readFileSync(__dirname+'/./sessions/'+sessionID+'/error.txt','utf-8',(err,data)=>{
                     if(err){
                         console.log(err);
                     }
@@ -79,9 +79,9 @@ router.post('/submit',(req,res)=>{
     
 });
 function createTempDir(sessionID){
-    fs.access("./sessions/"+sessionID,function(error){
+    fs.access(__dirname+"/./sessions/"+sessionID,function(error){
         if(error){
-            fs.mkdirSync('./sessions/'+sessionID);
+            fs.mkdirSync(__dirname+'/./sessions/'+sessionID);
         }else{
            //Directory exists already, just continue
         }
@@ -94,12 +94,12 @@ function createTempDir(sessionID){
      //execSync('rmdir /s /q .\\sessions\\'+sessionID);
 
      //Linux implementation
-     execSync('rmdir -rf ./sessions/'+sessionID);
+     execSync('rmdir -rf '+__dirname+'/./sessions/'+sessionID);
 }
 
 function runImage(sessionID) {
     
-    const stdout=  execSync('docker run -d --mount src="./sessions/'+sessionID+'",dst=/source,type=bind cimage' );
+    const stdout=  execSync('docker run -d --mount src="'+__dirname+'/./sessions/'+sessionID+'",dst=/source,type=bind cimage' );
    
     return stdout;
 }
