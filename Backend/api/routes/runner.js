@@ -26,9 +26,9 @@ router.post('/submit',(req,res)=>{
         extension = '.java';
     else if(lang == 'ace/mode/python')
         extension = '.py';
-    else if(lang == 'ace/mode/c_cpp'&&language=='c')
+    else if(lang == 'ace/mode/c_cpp' && language=='c')
         extension = '.c';
-    else if(lang == 'ace/mode/c_cpp'&&language=='cpp')
+    else if(lang == 'ace/mode/c_cpp' && language=='cpp')
         extension = '.cpp';
     else if(lang == 'ace/mode/csharp')
         extension = '.cs';
