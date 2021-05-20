@@ -1,8 +1,19 @@
-<div>
-    <button href="" class="bn3637 bn36" id="run" (click)="runCode()">
-        RUN
-    </button>
-    <button class="bn3637 bn36" id="clear" (click)="sendClearInst()">
-        CLEAR
-    </button>
+<div class="editor-button-panel">
+    <div class="dropdown">
+        <button>{{ctheme}}</button>
+        <div class="dropMenu">
+            <button>>></button>
+            <div id = "dropcontent" class="dropContent">
+                <a href="#" *ngFor='let theme of supportedThemes' (click)="changeTheme(theme)">{{theme}}</a>
+            </div>
+        </div>
+    </div>
+    <div class="code-action-buttons">
+        <button href="" class="bn3637 bn36" id="run" (click)="runCode()">
+            RUN
+        </button>
+        <button class="bn3637 bn36" id="clear" (click)="sendClearInst()">
+            CLEAR
+        </button>
+    </div>
 </div>

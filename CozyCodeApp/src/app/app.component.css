@@ -15,7 +15,20 @@ code-editor {
 }
 
 
-
+@media only screen and (min-device-width: 320px) 
+and (max-device-width: 480px) {
+    io-area {
+        float: none;
+        width: 100%;
+    }
+    code-editor {
+        float:none;
+        width: 100%;
+    }
+    .app-area{
+        display: block;
+    }
+}
 io-area {
     float: right;
     width: 28%;

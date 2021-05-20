@@ -47,6 +47,8 @@
               "node_modules/ace-builds/src-min/snippets/python.js",
               "node_modules/ace-builds/src-min/snippets/ruby.js",
               "node_modules/ace-builds/src-min/theme-xcode.js",
+              "node_modules/ace-builds/src/theme-tomorrow.js",
+              "node_modules/jquery/dist/jquery.min.js",
               {"bundleName": "worker-html","input": "node_modules/ace-builds/src-min/worker-html.js"}
             ]
           },

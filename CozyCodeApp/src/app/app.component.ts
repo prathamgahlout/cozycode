@@ -28,4 +28,8 @@ export class AppComponent {
     if(s=='')return;
     this.editorComp.cmd_input=s;
   }
+  setIOTheme($event){
+    this.ioareacomp.inputAceEditor.setTheme('ace/theme/'+$event);
+    this.ioareacomp.outputAceEditor.setTheme('ace/theme/'+$event);
+  }
 }

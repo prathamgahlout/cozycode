@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TitleBarComponent implements OnInit {
   braces = "{ }";
+  
   constructor() { }
 
   ngOnInit(): void {

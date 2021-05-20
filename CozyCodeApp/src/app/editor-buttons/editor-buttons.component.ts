@@ -7,11 +7,13 @@ import { Component,Output,EventEmitter,AfterViewInit } from '@angular/core';
   styleUrls: ['./editor-buttons.component.css']
 })
 export class EditorButtonsComponent implements AfterViewInit {
-
+  supportedThemes: string[] = ["Twilight","Dracula","Tommorow","Eclipse","Monokai","Chrome","Chaos","Solarized_dark","Terminal"];
+  ctheme:string = "Dracula";
   constructor() { }
 
   @Output() clearEvent = new EventEmitter();
   @Output() runEvent = new EventEmitter();
+  @Output() themeEvent = new EventEmitter<String>();
   ngAfterViewInit():void {
     document.getElementById("run").style.backgroundColor="#23D160";
     document.getElementById("run").style.color="#f5f5f5";
@@ -29,5 +31,9 @@ export class EditorButtonsComponent implements AfterViewInit {
     (<HTMLInputElement> document.getElementById("run")).disabled = true;
     this.runEvent.emit(null);
   }
-  
+  changeTheme($event){
+    //document.getElementById("dropcontent").style.display="none";
+    this.ctheme = $event;
+    this.themeEvent.emit($event);
+  }
 }

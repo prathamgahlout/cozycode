@@ -23,7 +23,7 @@ export class EditorComponent implements AfterViewInit {
   @ViewChild("editor") private editor: ElementRef<HTMLElement>;
   @Output() outputEvent = new EventEmitter<String>();
   @Output() inputEvent = new EventEmitter();
-
+  @Output() ioThemeEvent = new EventEmitter<String>();
   ngAfterViewInit(): void {
     ace.config.set("fontSize", "16px");
 
@@ -73,7 +73,10 @@ export class EditorComponent implements AfterViewInit {
     this.aceEditor.setValue("");
   }
   setTheme($event){
-
+    var s:string = $event;
+    s=s.toLowerCase();
+    this.aceEditor.setTheme('ace/theme/'+s);
+    this.ioThemeEvent.emit(s);
   }
 
   sendData($event){

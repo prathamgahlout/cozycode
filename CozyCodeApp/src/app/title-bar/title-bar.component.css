@@ -22,16 +22,16 @@
 
 #about-link {
     float: right;
-    
     padding: 1.5em;
     text-decoration: none;
     font-weight: 700;
     height: 100%;
-    width: 5%;
+    
     color: #5685FD;
-    font-size: 20px;
+    font-size: 16px;
    
 }
+
 #logo-div {
     float: left;
     height: 100%;
