@@ -89,7 +89,7 @@ def runC():
 def runCpp():
     with open(path+'compile_output.txt','w') as out:
         with open(path+'compile_error.txt','w') as err:
-            process = subprocess.Popen(['gpp', path+'src.c','-o',path+'a'],
+            process = subprocess.Popen(['gcc', path+'src.cpp','-o',path+'a','-lstdc++'],
                             stdout=out, 
                             stderr=err)
             stdout,stderr = process.communicate()
