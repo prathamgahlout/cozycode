@@ -12,6 +12,10 @@ import { IoAreaComponent } from './io-area/io-area.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AboutComponent } from './about/about.component';
 import { Ace } from 'ace-builds';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -27,6 +31,10 @@ import { Ace } from 'ace-builds';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    BrowserAnimationsModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatIconModule,
     //RouterModule.forRoot([
       //{path: 'about',component:AboutComponent},
       //{path: '/',component:AppComponent}

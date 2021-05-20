@@ -1,5 +1,6 @@
 .app-area{
     margin: 0;
+    display: block;
 }
 title-bar {
     width: 100%;
@@ -7,33 +8,55 @@ title-bar {
     overflow: hidden;
     position: fixed;
     top: 0;
+    z-index: 4;
 }
+
 code-editor {
     float: left;
     width: 70%;
     height: 30em;
+    z-index: -1;
 }
 
+
+io-area {
+    float: right;
+    width: 28%;
+    margin: 2px;
+    z-index: -1;
+    height: 30em;
+    margin-right: 1em;
+ 
+}
+app-about {
+    float: right;
+    width: 28%;
+    height: 30em;
+    overflow: hidden;
+    z-index: 2;
+
+    margin:2px;
+    padding: 0;
+    position: absolute;
+}
 
 @media only screen and (min-device-width: 320px) 
 and (max-device-width: 480px) {
     io-area {
-        float: none;
+        margin: 0;
+        margin-top: 12em;
+        padding: 0;
+        margin-right: 0;
         width: 100%;
+        height: 30em;
+        float: left;
     }
     code-editor {
-        float:none;
         width: 100%;
+        height: 30em;
     }
     .app-area{
         display: block;
     }
 }
-io-area {
-    float: right;
-    width: 28%;
-    margin: 2px;
-    height: 30em;
-    margin-right: 1em;
- 
-}
+

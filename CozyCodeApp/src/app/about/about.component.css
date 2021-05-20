@@ -1,0 +1,72 @@
+.about-box {
+    width: 80%;
+    height: 100%;
+    padding: 2em;
+    background-color:#06050c;
+    display: none;
+    margin-top: 5em;
+}
+.banner {
+    display: block;
+    text-align: center;
+}
+.about-box img {
+    width: 40px;
+    height: 50px;
+    
+}
+.about-box h3 {
+    text-align: center;
+    color:#5685FD;
+}
+.about-box h4 {
+    float: left;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    color: aliceblue;
+}
+.about-box p{
+    float: right;
+    font-size: 12px;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    color: aliceblue;
+}
+.contact{
+    display: inline-block;
+}
+.disclaimer {
+    margin-top: 2em;
+    padding: 1em;
+
+}
+.disclaimer p{
+    font-weight: 400;
+    
+}
+.copyright {
+    margin-top: 6em;
+    text-align: center;
+   
+}
+.copyright p{
+font-size: 8px;
+text-align: center;
+color: darkgray;
+}
+
+.github{
+    margin-top: 1em;
+    display: inline-block;
+}
+.github a{
+   float: right;
+    text-decoration: none;
+    color: #5685FD;
+    padding: 0;
+    margin-left: 3em;
+}
+
+

@@ -30,6 +30,8 @@ export class LangBarComponent implements OnInit,AfterViewInit {
       }
     });
     let s = lang.toLowerCase();
+    if(s=="c++")
+    s="cpp";
     this.modeEvent.emit(s);
     
   }

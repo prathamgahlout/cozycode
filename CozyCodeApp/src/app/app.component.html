@@ -1,8 +1,10 @@
 <div class="app-area">
-<title-bar></title-bar>
+<title-bar (aboutEvent)="toggleAboutPanel($event)"></title-bar>
 
 <code-editor (outputEvent)="setOutput($event)" (inputEvent)="getInput($event)" (ioThemeEvent)="setIOTheme($event)"></code-editor>
 <io-area ></io-area>
+<app-about></app-about>
+
 </div>
 
 <router-outlet></router-outlet>

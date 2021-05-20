@@ -1,6 +1,7 @@
+import { AboutComponent } from './about/about.component';
 import { EditorComponent } from './editor/editor.component';
 import { IoAreaComponent } from './io-area/io-area.component';
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild,EventEmitter,Output } from '@angular/core';
 import {Title} from "@angular/platform-browser";
 
 @Component({
@@ -17,6 +18,9 @@ export class AppComponent {
   private ioareacomp: IoAreaComponent;
   @ViewChild(EditorComponent,{static:false})
   private editorComp: EditorComponent;
+  @ViewChild(AboutComponent,{static:false})
+  private aboutComp: AboutComponent;
+  
   setOutput($event){
     document.getElementById("run").innerText = "RUN";
     (<HTMLInputElement> document.getElementById("run")).disabled = false;
@@ -32,4 +36,8 @@ export class AppComponent {
     this.ioareacomp.inputAceEditor.setTheme('ace/theme/'+$event);
     this.ioareacomp.outputAceEditor.setTheme('ace/theme/'+$event);
   }
+  toggleAboutPanel($event){
+    this.aboutComp.setToggle($event);
+  }
+  
 }
