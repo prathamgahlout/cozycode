@@ -21,7 +21,7 @@
     "@angular/platform-browser": "~11.2.13",
     "@angular/platform-browser-dynamic": "~11.2.13",
     "@angular/router": "~11.2.13",
-    "ace-builds": "^1.4.12",
+    "ace-builds": "^1.28.0",
     "bootstrap": "^5.0.1",
     "jquery": "^3.6.0",
     "popper.js": "^1.16.1",
