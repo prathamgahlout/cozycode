@@ -1,6 +1,7 @@
 # cozyCODE.io
 
-A Web Application which enables learners to code and get result on the go without any software installation needed on their machine. 
-It supports multiple languages and I'm trying to add support for even more langauges.
+A Web Application to run code online. Supports multiple languages like C#, C, C++, Java, Javascript, Ruby.
+
+[17/12/2023] This code needs major refactoring. Not a good architecture overall. I'll probably rewrite everything If I ever get time xD.
 
 > http://cozycode.atwebpages.com
