@@ -11,8 +11,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "^1.6.0",
-    "express": "^4.17.1",
+    "axios": "^1.13.5",
+    "express": "^4.22.0",
     "mongodb": "^3.6.6"
   },
   "devDependencies": {
